@@ -32,6 +32,7 @@ const MenuItemInput = ({ index, removeMenuItem }: Props) => {
                 {...field}
                 placeholder="Cheese Pizza"
                 className="bg-white"
+                data-testid={`menu-item-name-${index}`}
               />
             </FormControl>
           </FormItem>
@@ -46,7 +47,7 @@ const MenuItemInput = ({ index, removeMenuItem }: Props) => {
               Price (£) <FormMessage />
             </FormLabel>
             <FormControl>
-              <Input {...field} placeholder="8.00" className="bg-white" />
+              <Input {...field} placeholder="8.00" className="bg-white" data-testid={`menuItemPrice-${index}`} />
             </FormControl>
           </FormItem>
         )}
@@ -55,6 +56,7 @@ const MenuItemInput = ({ index, removeMenuItem }: Props) => {
         type="button"
         onClick={removeMenuItem}
         className="bg-red-500 max-h-fit"
+        data-testid={`removeMenuItem-${index}`}
       >
         Remove
       </Button>

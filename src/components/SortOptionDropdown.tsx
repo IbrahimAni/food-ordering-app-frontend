@@ -15,14 +15,17 @@ const SORT_OPTIONS = [
   {
     label: "Best match",
     value: "bestMatch",
+    qa_attr: "sort-best-match",
   },
   {
     label: "Delivery price",
     value: "deliveryPrice",
+    qa_attr: "sort-delivery-price",
   },
   {
     label: "Estimated delivery time",
     value: "estimatedDeliveryTime",
+    qa_attr: "sort-estimated-delivery-time",
   },
 ];
 
@@ -34,7 +37,7 @@ const SortOptionDropdown = ({ onChange, sortOption }: Props) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="cursor-pointer">
-        <Button variant="outline" className="w-full">
+        <Button variant="outline" className="w-full" data-testid="sort-by">
           Sort by: {selectedSortLabel}
         </Button>
       </DropdownMenuTrigger>
@@ -43,6 +46,7 @@ const SortOptionDropdown = ({ onChange, sortOption }: Props) => {
           <DropdownMenuItem
             className="cursor-pointer"
             onClick={() => onChange(option.value)}
+            data-testid={option.qa_attr}
           >
             {option.label}
           </DropdownMenuItem>

@@ -43,6 +43,7 @@ const ImageSection = () => {
                   className="bg-white"
                   type="file"
                   accept=".jpg, .jpeg, .png"
+                  data-testid="resturantMenuImage"
                   onChange={(event) =>
                     field.onChange(
                       event.target.files ? event.target.files[0] : null

@@ -22,14 +22,14 @@ const ManageRestaurantPage = () => {
   return (
     <Tabs defaultValue="orders">
       <TabsList>
-        <TabsTrigger value="orders">Orders</TabsTrigger>
-        <TabsTrigger value="manage-restaurant">Manage Restaurant</TabsTrigger>
+        <TabsTrigger value="orders" data-testid="mg-order">Orders</TabsTrigger>
+        <TabsTrigger value="manage-restaurant" data-testid="mg-resturant">Manage Restaurant</TabsTrigger>
       </TabsList>
       <TabsContent
         value="orders"
         className="space-y-5 bg-gray-50 p-10 rounded-lg"
       >
-        <h2 className="text-2xl font-bold">{orders?.length} active orders</h2>
+        <h2 className="text-2xl font-bold" data-testid="active-orders" >{orders?.length} active orders</h2>
         {orders?.map((order) => (
           <OrderItemCard order={order} />
         ))}

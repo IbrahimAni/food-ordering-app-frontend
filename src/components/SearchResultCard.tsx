@@ -5,9 +5,10 @@ import { Banknote, Clock, Dot } from "lucide-react";
 
 type Props = {
   restaurant: Restaurant;
+  data_testid: string;
 };
 
-const SearchResultCard = ({ restaurant }: Props) => {
+const SearchResultCard = ({ restaurant, data_testid }: Props) => {
   return (
     <Link
       to={`/detail/${restaurant._id}`}
@@ -19,15 +20,15 @@ const SearchResultCard = ({ restaurant }: Props) => {
           className="rounded-md w-full h-full object-cover"
         />
       </AspectRatio>
-      <div>
-        <h3 className="text-2xl font-bold tracking-tight mb-2 group-hover:underline">
+      <div data-testid={data_testid}>
+        <h3 className="text-2xl font-bold tracking-tight mb-2 group-hover:underline" data-testid="resturant-name">
           {restaurant.restaurantName}
         </h3>
         <div id="card-content" className="grid md:grid-cols-2 gap-2">
           <div className="flex flex-row flex-wrap">
             {restaurant.cuisines.map((item, index) => (
               <span className="flex">
-                <span>{item}</span>
+                <span data-testid={`${item.toLocaleLowerCase()}`}>{item}</span>
                 {index < restaurant.cuisines.length - 1 && <Dot />}
               </span>
             ))}
